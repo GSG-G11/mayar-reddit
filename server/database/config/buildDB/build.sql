@@ -9,9 +9,10 @@ CREATE TABLE users(
 );
 CREATE TABLE posts(
     id serial PRIMARY KEY ,
-    titel VARCHAR(50) NOT NULL ,
+    votes INT DEFAULT 0 ,
     content text NOT NULL ,
     img text ,
+    created_at timestamp NOT NULL DEFAULT NOW(),
     user_id INT REFERENCES users(id) ON UPDATE CASCADE
 );
 
