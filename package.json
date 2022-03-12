@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=test jest ./test",
+    "dev": "cross-env NODE_ENV=dev nodemon ./server",
+    "start": "NODE_ENV=production node ./server"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,25 @@
   "bugs": {
     "url": "https://github.com/GSG-G11/mayar-reddit/issues"
   },
-  "homepage": "https://github.com/GSG-G11/mayar-reddit#readme"
+  "homepage": "https://github.com/GSG-G11/mayar-reddit#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "env2": "^2.2.2",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.3"
+  }
 }
