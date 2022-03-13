@@ -22,7 +22,6 @@ const handleSignup = (req, res, next) => {
     .then((token) => {
       res
           .cookie('access_token', token, {
-            maxAge: 2592000000,
             httpOnly: true,
           })
           .json({ message: 'done' });
