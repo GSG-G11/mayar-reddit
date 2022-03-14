@@ -1,9 +1,9 @@
 require('env2')('.env');
 const { sign } = require('jsonwebtoken');
 
-const signPromise = (email)=>{
+const signPromise = (id)=>{
    return  new Promise((resolve, reject)=>{
-        sign({ email }, process.env.SECRET, { expiresIn: '30d' }, (err, token) => {
+        sign({ id }, process.env.SECRET, { expiresIn: '30d' }, (err, token) => {
             if(err){
                 reject(err);
             }else{

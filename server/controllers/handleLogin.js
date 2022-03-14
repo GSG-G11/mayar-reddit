@@ -1,6 +1,6 @@
-const { hash, compare } = require('bcryptjs');
+const { compare } = require('bcryptjs');
 const { loginSchema, customizedError , signPromise} = require('../utils');
-const { checkEmail, getPassword } = require('../database/queries');
+const { checkEmail, getPassword , getId } = require('../database/queries');
 
 const handleLogin = (req, res, next) => {
   const { email, password } = req.body;
@@ -11,7 +11,7 @@ const handleLogin = (req, res, next) => {
       if (data.rowCount === 1) {
         return getPassword(data.rows[0].email);
       } else {
-        throw customizedError("Email and password don't  match ");
+        throw customizedError("Email and password don't  match " , 400);
       }
     })
     .then((data) => {
@@ -19,11 +19,12 @@ const handleLogin = (req, res, next) => {
     })
     .then((isMatch) => {
       if (isMatch) {
-        return signPromise(email)
+        return getId(email)
       } else {
-        throw customizedError("Email and password don't  match ");
+        throw customizedError("Email and password don't  match " , 400);
       }
     })
+    .then((data)=> signPromise(data.rows[0].id))
     .then((token)=>{
         res.cookie('access_token', token, {
             httpOnly: true,

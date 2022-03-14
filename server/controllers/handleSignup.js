@@ -16,8 +16,8 @@ const handleSignup = (req, res, next) => {
       }
     })
     .then((password) => signupQuery({ email, name, password }))
-    .then(() => {
-      return signPromise(email);
+    .then((data) => {
+      return signPromise(data.rows[0].id);
     })
     .then((token) => {
       res.cookie('access_token', token, {

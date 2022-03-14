@@ -8,7 +8,7 @@ const serverError = (err,req,res,next)=>{
     if(err.status){
         res.status(err.status).json({msg : err.msg});
     }else{
-        res.status(500).sendFile(join(__dirname , '..',  '..', 'public' ,'html','500.html'))
+        res.status(500).json('Server Error' , 500);
     }
 };
 module.exports = {pageNotPage , serverError};
