@@ -11,7 +11,6 @@ CREATE TABLE posts(
     id serial PRIMARY KEY ,
     votes INT DEFAULT 0 ,
     content text NOT NULL ,
-    img text ,
     created_at timestamp NOT NULL DEFAULT NOW(),
     user_id INT REFERENCES users(id) ON UPDATE CASCADE
 );
