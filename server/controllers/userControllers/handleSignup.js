@@ -1,7 +1,7 @@
 require('env2')('.env');
 const { hash } = require('bcryptjs');
-const { signupQuery, checkEmail } = require('../database/queries');
-const { signupSchema, customizedError, signPromise } = require('../utils');
+const { signupQuery, checkEmail } = require('../../database/queries');
+const { signupSchema, customizedError, signPromise } = require('../../utils');
 
 const handleSignup = (req, res, next) => {
   const { email, name, password } = req.body;
@@ -16,8 +16,8 @@ const handleSignup = (req, res, next) => {
       }
     })
     .then((password) => signupQuery({ email, name, password }))
-    .then(() => {
-      return signPromise(email);
+    .then((data) => {
+      return signPromise(data.rows[0].id);
     })
     .then((token) => {
       res.cookie('access_token', token, {
