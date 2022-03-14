@@ -6,6 +6,7 @@ const { postPostsQuery } = require('./postPostsQuery');
 const { getPostsQuery } = require('./getPostsQuery');
 const { checkPost, checkPostWithId} = require('./checkPost');
 const { daletePostQuery } = require('./daletePostQuery');
+const { updatePostsQuery } = require('./updatePostsQuery');
 
 module.exports = {
   signupQuery,
@@ -17,4 +18,5 @@ module.exports = {
   checkPost,
   checkPostWithId,
   daletePostQuery,
+  updatePostsQuery,
 };
