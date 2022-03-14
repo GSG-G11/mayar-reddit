@@ -1,7 +1,7 @@
 require('env2')('.env');
 const { hash } = require('bcryptjs');
-const { signupQuery, checkEmail } = require('../database/queries');
-const { signupSchema, customizedError, signPromise } = require('../utils');
+const { signupQuery, checkEmail } = require('../../database/queries');
+const { signupSchema, customizedError, signPromise } = require('../../utils');
 
 const handleSignup = (req, res, next) => {
   const { email, name, password } = req.body;

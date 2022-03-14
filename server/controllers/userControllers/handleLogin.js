@@ -1,6 +1,6 @@
 const { compare } = require('bcryptjs');
-const { loginSchema, customizedError , signPromise} = require('../utils');
-const { checkEmail, getPassword , getId } = require('../database/queries');
+const { loginSchema, customizedError , signPromise} = require('../../utils');
+const { checkEmail, getPassword , getId } = require('../../database/queries');
 
 const handleLogin = (req, res, next) => {
   const { email, password } = req.body;
