@@ -1,9 +1,9 @@
 const posts = document.querySelector('.posts');
 
-let username = '';
-request('api/v1/username', 'GET').then((data)=> {
-    username = data.username
-})
+// let username = '';
+// request('api/v1/username', 'GET').then((data)=> {
+//     username = data.username
+// })
 
 
 request('api/v1/posts', 'GET')
@@ -40,11 +40,11 @@ const createPost = (obj, parent) => {
     const votesSpan = document.createElement('span');
     votesSpan.textContent = votes;
     icons.append(likeIcon,votesSpan);
-    if(username === name){
+    //if(username === name){
         const deleteIcon = document.createElement('i');
         deleteIcon.className = 'fa fa-trash';
         icons.appendChild(deleteIcon)
-    }
+    //}
 
     post.append(userPost , time ,contentPost, icons);
 
