@@ -7,8 +7,8 @@ router.post('/login', handleLogin);
 router.post('/logout', handleLogout);
 router.get('/posts',getPosts);
 router.use(checkAuth);
+router.delete('/posts',deletePosts);
 router.post('/posts',postPosts);
-router.delete('/posts',deletePosts)
 router.put('/posts',updatePosts)
 
 
