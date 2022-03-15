@@ -1,8 +1,11 @@
+
 const { checkPost, checkPostWithId, daletePostQuery } = require('../../database/queries');
 const { customizedError } = require('../../utils');
+
 const deletePosts = (req, res, next) => {
-  const { user_id, id } = req.body;
-  checkPost(id)
+  const { user_id } = req
+  const { id } = req.body;
+    checkPost(id)
     .then((data) => data.rows[0]['?column?'])
     .then((result) => {
       if (result) {
@@ -20,5 +23,7 @@ const deletePosts = (req, res, next) => {
     })
     .then(() => res.status(200).json({ msg: 'Post has been deleted' }))
     .catch((err) => next(err));
-};
+  };
+
+
 module.exports = { deletePosts };

@@ -1,10 +1,8 @@
 const { homePage, loginPage, signupPage, profilePage } = require('./handllePages');
-const { handleSignup } = require('./userControllers');
-const { handleLogin } = require('./userControllers');
-const {handleLogout} = require('./userControllers');
-
+const { handleSignup , getUserName , handleLogin , handleLogout } = require('./userControllers');
 const { postPosts , getPosts , deletePosts , updatePosts} = require('./postsControllers');
 const { pageNotPage, serverError } = require('./errors');
+
 module.exports = {
   homePage,
   loginPage,
@@ -19,4 +17,5 @@ module.exports = {
   getPosts,
   deletePosts,
   updatePosts,
+  getUserName,
 };
