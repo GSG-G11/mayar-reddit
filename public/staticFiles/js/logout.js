@@ -4,4 +4,5 @@ logoutBtn.addEventListener('click' , ()=>{
         btns.style.display = 'flex';
         logoutDiv.style.display = 'none';
     })
+    window.location.reload(true)
 })

@@ -5,6 +5,7 @@ const { customizedError } = require('../../utils');
 const deletePosts = (req, res, next) => {
   const { user_id } = req
   const { id } = req.body;
+  console.log(id)
     checkPost(id)
     .then((data) => data.rows[0]['?column?'])
     .then((result) => {

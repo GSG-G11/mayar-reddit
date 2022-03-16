@@ -1,12 +1,4 @@
 const posts = document.querySelector('.posts');
-let userName = '';
-
-request('api/v1/username', 'GET').then((data)=>{
-        userName =  data.username ;
-        btns.style.display = 'none';
-        logoutDiv.style.display = 'flex';
-        username.innerHTML = data.username;
-})
 
 request('api/v1/posts', 'GET')
 .then((data) =>  data.posts)
@@ -43,11 +35,29 @@ const createPost = (obj, parent) => {
     votesSpan.textContent = votes;
     icons.append(likeIcon,votesSpan);
     
-    if(userName === name){
-        const deleteIcon = document.createElement('i');
-        deleteIcon.className = 'fa fa-trash';
-        icons.appendChild(deleteIcon)
-    }
+    request('api/v1/username', 'GET')
+    .then((data)=>{
+        userName =  data.username ;
+        btns.style.display = 'none';
+        logoutDiv.style.display = 'flex';
+        username.innerHTML = data.username;
+        return data.username
+    }).then((username)=>{
+        if(username === name){
+            const deleteIcon = document.createElement('i');
+            deleteIcon.className = 'fa fa-trash';
+            deleteIcon.addEventListener('click' , (e)=>{
+                e.preventDefault();
+                const data = {id : id}
+                request('/api/v1/posts','DELETE' , data )
+                .then(()=>{
+                    post.remove();
+                })
+                
+            })
+            icons.appendChild(deleteIcon)
+        }
+    })
 
     post.append(userPost , time ,contentPost, icons);
 

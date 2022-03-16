@@ -18,7 +18,8 @@ formLogin.addEventListener('submit', (e) => {
         return request('api/v1/username', 'GET');
       } else {
         msglogin.textContent = data.msg;
-        (msglogin.style.color = 'red'), formLogin.appendChild(msglogin);
+        msglogin.style.color = 'red', 
+        formLogin.appendChild(msglogin);
       }
     })
     .then((data) => {
@@ -29,4 +30,5 @@ formLogin.addEventListener('submit', (e) => {
         window.location.reload(true)
       }
     });
+
 });
