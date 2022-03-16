@@ -1,5 +1,5 @@
 BEGIN ;
-DROP TABLE IF EXISTS users , posts ;
+DROP TABLE IF EXISTS users , posts , user_post;
 
 CREATE TABLE users(
     id serial PRIMARY KEY ,
@@ -14,5 +14,10 @@ CREATE TABLE posts(
     created_at timestamp NOT NULL DEFAULT NOW(),
     user_id INT REFERENCES users(id) ON UPDATE CASCADE
 );
-
+CREATE TABLE user_post (
+    isvote BOOLEAN ,
+    user_id INT REFERENCES users(id) ON UPDATE CASCADE ,
+    post_id INT REFERENCES posts(id) ON UPDATE CASCADE , 
+    UNIQUE(user_id,post_id)
+);
 COMMIT;

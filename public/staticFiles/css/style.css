@@ -23,7 +23,7 @@ nav{
     gap: 60%;
     padding: 0 40px;
     align-items: center;
-    z-index: 1000;
+    z-index: 3;
     
 }
 nav div{
@@ -115,9 +115,11 @@ i:hover ,button:hover{
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
+    top: 0px;
     left: 0;
     background-color: rgba(0, 0, 0, 0.541);
+    z-index: 5;
+    min-height: 100%;
 }
 .fa-times{
     position: absolute;
@@ -126,6 +128,7 @@ i:hover ,button:hover{
     font-size: 35px;
     color: white;
     cursor: pointer;
+    z-index: 6;
 }
 .form-login , .form-signup , .form-create-post{
     position: absolute;
