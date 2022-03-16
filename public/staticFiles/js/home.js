@@ -1,11 +1,5 @@
 const posts = document.querySelector('.posts');
 
-// let username = '';
-// request('api/v1/username', 'GET').then((data)=> {
-//     username = data.username
-// })
-
-
 request('api/v1/posts', 'GET')
 .then((data) =>  data.posts)
 .then((data)=> data.forEach((obj)=> createPost(obj , posts)));
