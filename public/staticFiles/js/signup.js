@@ -32,4 +32,6 @@ formSignup.addEventListener('submit', (e) => {
         window.location.reload(true)
       }
     });
+   
+
 });

@@ -1,5 +1,10 @@
 const posts = document.querySelector('.posts');
+request('api/v1/username', 'GET')
+.then((data)=>{
+    userName =  data.username ;
+    username.innerHTML = data.username;
 
+})
 request('api/v1/posts', 'GET')
 .then((data) =>  data.posts)
 .then((data)=> data.forEach((obj)=> createPost(obj , posts)));
@@ -31,8 +36,18 @@ const createPost = (obj, parent) => {
     icons.className = 'icons';
     const likeIcon = document.createElement('i');
     likeIcon.className = 'fa fa-thumbs-up';
+    likeIcon.addEventListener('click' , (e)=>{
+        e.preventDefault();
+        request('api/v1/votes', 'POST' , {id : id})
+        window.location.reload(true)
+
+    })
     const votesSpan = document.createElement('span');
-    votesSpan.textContent = votes;
+    request('api/v1/votes', 'PUT' , {id : id})
+    .then((data)=>{
+        votesSpan.textContent = data.numOfvotes;
+        
+    })
     icons.append(likeIcon,votesSpan);
     
     request('api/v1/username', 'GET')
