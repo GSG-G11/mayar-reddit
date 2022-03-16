@@ -11,7 +11,7 @@ const handleLogin = (req, res, next) => {
       if (data.rowCount === 1) {
         return getPassword(data.rows[0].email);
       } else {
-        throw customizedError("Email and password don't  match " , 400);
+        throw customizedError("Email is not available  " , 400);
       }
     })
     .then((data) => {
