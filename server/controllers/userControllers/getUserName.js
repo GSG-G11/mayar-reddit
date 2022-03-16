@@ -3,6 +3,9 @@ const getUserName = (req , res , next)=>{
     const { user_id } = req ;
     getUserNameQuery(user_id)
     .then((data) => res.json({username : data.rows[0].name}))
-    .catch(next)
+    .catch((err)=>
+    {
+        next(err)
+    })
 }
 module.exports = { getUserName };

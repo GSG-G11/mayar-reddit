@@ -23,7 +23,7 @@ const handleSignup = (req, res, next) => {
       res.cookie('access_token', token, {
             httpOnly: true,
           })
-          .json({ message: 'done' });
+          .json({ msg: 'done' });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
