@@ -160,4 +160,10 @@ textarea{
     border: 1px solid #dad7d7;
     padding: 10px;
     overflow: hidden;
+    height: 100px;
+    width: 70%;
+}
+.post img {
+    margin-top: 20px;
+    width: 100%;
 }

@@ -29,9 +29,10 @@ formSignup.addEventListener('submit', (e) => {
         btns.style.display = 'none';
         logoutDiv.style.display = 'flex';
         username.innerHTML = data.username;
-        window.location.reload(true)
+       // window.location.reload(true)
+
       }
     });
-   
+
 
 });
