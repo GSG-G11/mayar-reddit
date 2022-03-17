@@ -1,10 +1,10 @@
 const posts = document.querySelector('.posts');
 const navIcons = document.querySelector('.nav-icons');
+const username = document.querySelector('.user-name');
 let numVotes = 0 ;
 request('api/v1/username', 'GET').then((data) => {
   btns.style.display = 'none';
   logoutDiv.style.display = 'flex';
-  userName = data.username;
   username.innerHTML = data.username;
 });
 request('api/v1/posts', 'GET')
@@ -42,7 +42,8 @@ const createPost = (obj, parent) => {
   const likeIcon = document.createElement('i');
   likeIcon.className = 'fa fa-thumbs-up';
   likeIcon.addEventListener('click', (e) => {
-    e.preventDefault();
+    if(username.textContent){
+      e.preventDefault();
     request('api/v1/votes', 'POST', { id: id })
     request('api/v1/votes', 'PUT', { id: id }).then((data) => {
       const object = {
@@ -56,7 +57,11 @@ const createPost = (obj, parent) => {
     })
     .then(()=> window.location.reload(true))
      
-
+    
+    }else{
+      console.log(1)
+      swal('Error', 'YOU MUST HAVE AN ACCOUNT', 'error');
+    }
   });
   votesSpan.innerText = votes;
   icons.append(likeIcon, votesSpan);

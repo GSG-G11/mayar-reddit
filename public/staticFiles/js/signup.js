@@ -1,6 +1,5 @@
 const logoutDiv = document.querySelector('.logout');
 const logoutBtn = document.querySelector('.logout-btn');
-const username = document.querySelector('.user-name');
 const btns = document.querySelector('.btns');
 
 const msg = document.createElement('p');
