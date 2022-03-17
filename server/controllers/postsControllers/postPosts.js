@@ -2,10 +2,10 @@ const { postsSchema , customizedError} = require('../../utils')
 const { postPostsQuery } = require('../../database/queries')
 const postPosts = (req, res , next) => {
     const { user_id } = req
-    const { votes , content } = req.body
+    const { votes , content , img} = req.body
     postsSchema.validateAsync(req.body)
     .then((data) => {
-    postPostsQuery({votes , content , user_id})
+    postPostsQuery({votes , content, img , user_id})
     })
     .then(()=> res.status(200).json({msg : 'post posts done'}))
     .catch((err)=>{

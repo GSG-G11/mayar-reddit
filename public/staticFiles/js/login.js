@@ -28,7 +28,7 @@ formLogin.addEventListener('submit', (e) => {
         logoutDiv.style.display = 'flex';
         username.innerHTML = data.username;
         window.location.reload(true)
+        
       }
     });
-
 });
