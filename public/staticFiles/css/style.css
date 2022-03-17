@@ -123,8 +123,8 @@ i:hover ,button:hover{
 }
 .fa-times{
     position: absolute;
-    top: 75px;
-    right: 75px;
+    top: 6px;
+    right: 32px;
     font-size: 35px;
     color: white;
     cursor: pointer;
@@ -166,4 +166,12 @@ textarea{
 .post img {
     margin-top: 20px;
     width: 100%;
+}
+.nav-icons {
+    width: 45%;
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
 }
