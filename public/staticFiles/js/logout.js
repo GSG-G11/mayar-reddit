@@ -3,6 +3,8 @@ logoutBtn.addEventListener('click' , ()=>{
     .then(()=>{
         btns.style.display = 'flex';
         logoutDiv.style.display = 'none';
+        navIcons.style.visibility = 'hidden';
+
     })
     window.location.reload(true)
 })

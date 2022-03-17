@@ -1,4 +1,5 @@
 const posts = document.querySelector('.posts');
+const navIcons = document.querySelector('.nav-icons');
 let numVotes = 0 ;
 request('api/v1/username', 'GET').then((data) => {
   btns.style.display = 'none';
